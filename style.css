@@ -15,8 +15,8 @@ body{
 /* Sidebar */
 .sidebar{
     width:260px;
-    background:#111827;
-    border-right:1px solid #1f2937;
+    background:#0f0d11;
+    border-right:2px solid #1f2937;
     padding:18px;
 }
 
@@ -86,7 +86,7 @@ body{
 .input-area{
     display:flex;
     gap:10px;
-    background:#111827;
+    background:#0f0d11;
     padding:10px;
     border-radius:14px;
     border:1px solid #1f2937;
