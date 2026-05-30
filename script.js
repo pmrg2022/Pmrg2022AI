@@ -1,4 +1,4 @@
-const API_URL = "https://ai-custom-hosting.onrender.com";
+const API_URL = "https://ai-custom-hosting.onrender.com/chat";
 
 const chatContainer =
     document.getElementById("chat-container");
