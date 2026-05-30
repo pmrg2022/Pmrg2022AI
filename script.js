@@ -64,6 +64,7 @@ async function sendMessage(){
 
     chatContainer.lastChild.textContent =
         "Error: " + error.message;
+    }
 }
 
 sendButton.addEventListener(
