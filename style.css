@@ -8,21 +8,22 @@
 body{
     display:flex;
     height:100vh;
-    background:#0b0f14;
-    color:white;
+    background:#0f141b; /* softer than pure black */
+    color:#e5e7eb;
 }
 
 /* Sidebar */
 .sidebar{
     width:260px;
-    background:#010121;
-    border-right:2px solid #1f2937;
+    background:#111827; /* softer dark navy */
+    border-right:1px solid #1f2937;
     padding:18px;
 }
 
 .title{
     font-size:18px;
     font-weight:600;
+    color:#f3f4f6;
 }
 
 .sub{
@@ -57,12 +58,13 @@ body{
     font-size:15px;
     white-space:pre-wrap;
     animation:fadeIn 0.15s ease-in;
+    color:#e5e7eb;
 }
 
 /* User */
 .user{
     align-self:flex-end;
-    background:#2563eb;
+    background:#3b82f6; /* cleaner modern blue */
     color:white;
     border-bottom-right-radius:6px;
 }
@@ -70,7 +72,7 @@ body{
 /* AI */
 .ai{
     align-self:flex-start;
-    background:#1f2937;
+    background:#1f2937; /* soft slate */
     border:1px solid #2b3646;
     border-bottom-left-radius:6px;
 }
@@ -79,30 +81,32 @@ body{
 .input-wrapper{
     padding:18px;
     border-top:1px solid #1f2937;
-    background:#0b0f14;
+    background:#0f141b;
 }
 
 /* Input bar */
 .input-area{
     display:flex;
     gap:10px;
-    background:#010121;
+    background:#111827;
     padding:10px;
     border-radius:14px;
     border:1px solid #1f2937;
 }
 
+/* Input field */
 #message-input{
     flex:1;
     border:none;
     outline:none;
     background:transparent;
-    color:white;
+    color:#e5e7eb;
     font-size:15px;
 }
 
+/* Button */
 #send-button{
-    background:#2563eb;
+    background:#3b82f6;
     border:none;
     color:white;
     width:42px;
@@ -110,10 +114,11 @@ body{
     border-radius:10px;
     cursor:pointer;
     font-size:16px;
+    transition:0.15s ease;
 }
 
 #send-button:hover{
-    background:#1d4ed8;
+    background:#2563eb;
 }
 
 /* animation */
