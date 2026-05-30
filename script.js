@@ -40,6 +40,8 @@ async function sendMessage(){
 
     try{
 
+        console.log("Sending to:", API_URL);
+
         const response = await fetch(
             API_URL,
             {
@@ -53,7 +55,13 @@ async function sendMessage(){
             }
         );
 
-        const data = await response.json();
+        console.log("Status:", response.status);
+
+        const text = await response.text();
+
+        console.log("Response:", text);
+
+        const data = JSON.parse(text);
 
         chatContainer.lastChild.textContent =
             data.response;
