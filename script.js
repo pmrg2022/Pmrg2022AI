@@ -28,32 +28,37 @@ async function sendMessage(){
 
     const message = input.value.trim();
 
-    if(!message){
-        return;
-    }
+    if(!message) return;
 
     addMessage(message, "user");
 
     input.value = "";
 
-    addMessage("Thinking...", "ai");
+    // create typing bubble
+    const typingDiv = document.createElement("div");
+    typingDiv.classList.add("message", "ai");
+    typingDiv.textContent = "Thinking...";
+    chatContainer.appendChild(typingDiv);
+
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // disable input temporarily (prevents spam clicks)
+    sendButton.disabled = true;
+    input.disabled = true;
 
     try{
 
         console.log("Sending to:", API_URL);
 
-        const response = await fetch(
-            API_URL,
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({
-                    message:message
-                })
-            }
-        );
+        const response = await fetch(API_URL, {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                message:message
+            })
+        });
 
         console.log("Status:", response.status);
 
@@ -61,17 +66,28 @@ async function sendMessage(){
 
         console.log("Response:", text);
 
-        const data = JSON.parse(text);
+        let data;
 
-        chatContainer.lastChild.textContent =
-            data.response;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            throw new Error("Invalid JSON from server");
+        }
+
+        typingDiv.textContent = data.response;
 
     }catch(error){
 
-    console.error(error);
+        console.error(error);
 
-    chatContainer.lastChild.textContent =
-        "Error: " + error.message;
+        typingDiv.textContent =
+            "Error: " + error.message;
+
+    }finally{
+
+        sendButton.disabled = false;
+        input.disabled = false;
+        input.focus();
     }
 }
 
