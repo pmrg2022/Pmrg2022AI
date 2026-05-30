@@ -60,9 +60,10 @@ async function sendMessage(){
 
     }catch(error){
 
-        chatContainer.lastChild.textContent =
-            "Connection error.";
-    }
+    console.error(error);
+
+    chatContainer.lastChild.textContent =
+        "Error: " + error.message;
 }
 
 sendButton.addEventListener(
